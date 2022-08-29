@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import useSignup from "../composables/useSignup";
+const { error, signup } = useSignup();
 export default {
   data() {
     return {
@@ -22,8 +24,9 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      console.log(this.displayName, this.email, this.password);
+    async handleSubmit() {
+      await signup(this.email, this.password, this.displayName);
+      console.log("user signed up");
     },
   },
 };
