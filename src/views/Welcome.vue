@@ -1,25 +1,19 @@
 <template>
   <div class="welcome container">
     <p>Welcome</p>
-    <!-- 2)Show login form if showLogin is true -->
     <div v-if="showLogin">
       <h2>Login</h2>
       <LoginForm />
       <p>
-        No account yet?
-        <!-- 4) On click change showLogin to false to display
-        signup form -->
+        No account yet? signup form -->
         <span @click="showLogin = false">Signup</span> instead.
       </p>
     </div>
-    <!-- 3) else, show signup form -->
     <div v-else>
       <h2>Signup</h2>
       <SignupForm />
       <p>
         Already registered?
-        <!-- 5) On click change showLogin to true to display
-        login form -->
         <span @click="showLogin = true">Login</span> instead.
       </p>
     </div>
@@ -33,7 +27,6 @@ export default {
   components: { SignupForm, LoginForm },
   data() {
     return {
-      // 1) initially show LoginForm
       showLogin: true,
     };
   },
